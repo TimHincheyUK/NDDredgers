@@ -11,6 +11,25 @@ body {
     overflow-x: hidden;
 }
 
+/* Global heading styles */
+h1 {
+    margin-bottom: 30px;
+    font-size: 36px;
+    position: relative;
+    display: inline-block;
+}
+
+h1:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #65cfdc, #f5a623);
+    border-radius: 2px;
+}
+
 header {
     display: flex;
     justify-content: space-between;
