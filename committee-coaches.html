@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committee & Coaches - North Dock Dredgers Triathlon Club</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .coaches-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .coach-card {
+            margin: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 8px solid transparent;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 22px;
+            padding: 30px;
+        }
+        
+        .coach-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .coach-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 15px;
+        }
+        
+        .coach-photo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .coach-name-title {
+            flex: 1;
+        }
+        
+        .coach-card h2 {
+            margin: 0;
+            font-size: 28px;
+            color: #ffffff;
+        }
+        
+        .coach-card h3 {
+            margin: 5px 0 0 0;
+            font-size: 20px;
+            color: #f5a623;
+            font-weight: normal;
+        }
+        
+        .coach-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .disciplines {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 20px; 
+        }
+        
+        .discipline-icon {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .discipline-icon::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .discipline-icon:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .specialties, .certifications {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .specialties h4, .certifications h4 {
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .specialties ul, .certifications ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        
+        .specialties li, .certifications li {
+            color: #dcdcdc;
+            padding: 4px 0;
+        }
+        
+        /* Coach-specific styling */
+        .head-coach {
+            border-left-color: #4a90e2;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(74, 144, 226, 0.8) 100%);
+        }
+        
+        .swim-coach {
+            border-left-color: #4a90e2;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(74, 144, 226, 0.8) 100%);
+        }
+        
+        .bike-coach {
+            border-left-color: #50e3c2;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(80, 227, 194, 0.8) 100%);
+        }
+        
+        .run-coach {
+            border-left-color: #f5a623;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(245, 166, 35, 0.8) 100%);
+        }
+
+        @media (min-width: 992px) {
+            .single-column {
+                padding: 50px 30px;
+                max-width: 100%;
+            }
+            
+            .coaches {
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .coaches-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            
+            .coach-card {
+                flex: 0 0 calc(50% - 90px);
+                max-width: calc(50% - 90px);
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section containing logo, navigation and CTA button -->
+    <header>
+        <a href="index.html" class="logo-link">
+            <img src="img/nddredgers-logo-299-160.png" alt="North Dock Dredgers Logo" class="logo">
+        </a>
+        <div class="header-right">
+            <a href="join-us.html" class="header-cta">Join the Dredgers Today!</a>
+            <nav class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </nav>
+        </div>
+        <ul class="menu" id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="training.html">Training</a></li>
+            <li><a href="club-kit.html">Club Kit</a></li>
+            <li class="active"><span>Committee and Coaches</span></li>
+            <li><a href="join-us.html"><strong>Join Us</strong></a></li>
+        </ul>
+    </header>
+
+    <div class="hero-image"></div>    <main class="single-column">
+        <section class="column coaches">
+            <h1>Our Coaches</h1>
+            
+            <div class="coaches-container">
+                <div class="coach-card head-coach">
+                    <div class="coach-header">
+                        <img src="https://via.placeholder.com/300x300?text=Coach" alt="Head Coach" class="coach-photo">
+                        <div class="coach-name-title">
+                            <h2>Sarah Williams</h2>
+                            <h3>Head Coach</h3>
+                        </div>
+                    </div>
+                    <div class="disciplines">
+                        <div class="discipline-icon" data-tooltip="Swimming Coach">
+                            <i class="fas fa-swimmer"></i>
+                        </div>
+                        <div class="discipline-icon" data-tooltip="Cycling Coach">
+                            <i class="fas fa-bicycle"></i>
+                        </div>
+                        <div class="discipline-icon" data-tooltip="Running Coach">
+                            <i class="fas fa-running"></i>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <div class="specialties">
+                            <h4>Coaching Specialties</h4>
+                            <ul>
+                                <li>Race preparation</li>
+                                <li>Technique analysis</li>
+                                <li>Training plans</li>
+                            </ul>
+                        </div>
+                        <div class="certifications">
+                            <h4>Qualifications</h4>
+                            <ul>
+                                <li>BTF Level 3 Coach</li>
+                                <li>SwimWales Level 2</li>
+                                <li>First Aid Certified</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="coach-card swim-coach">
+                    <div class="coach-header">
+                        <img src="https://via.placeholder.com/300x300?text=Coach" alt="Swim Coach" class="coach-photo">
+                        <div class="coach-name-title">
+                            <h2>Mark Davies</h2>
+                            <h3>Swim Coach</h3>
+                        </div>
+                    </div>
+                    <div class="disciplines">
+                        <div class="discipline-icon" data-tooltip="Swimming Coach">
+                            <i class="fas fa-swimmer"></i>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <div class="specialties">
+                            <h4>Coaching Specialties</h4>
+                            <ul>
+                                <li>Open water confidence</li>
+                                <li>Stroke technique</li>
+                                <li>Beginner friendly</li>
+                            </ul>
+                        </div>
+                        <div class="certifications">
+                            <h4>Qualifications</h4>
+                            <ul>
+                                <li>SwimWales Level 2</li>
+                                <li>Open Water Specialist</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Added two more coaches for better demonstration -->
+                <div class="coach-card bike-coach">
+                    <div class="coach-header">
+                        <img src="https://via.placeholder.com/300x300?text=Coach" alt="Cycling Coach" class="coach-photo">
+                        <div class="coach-name-title">
+                            <h2>Emma Johnson</h2>
+                            <h3>Cycling Coach</h3>
+                        </div>
+                    </div>
+                    <div class="disciplines">
+                        <div class="discipline-icon" data-tooltip="Cycling Coach">
+                            <i class="fas fa-bicycle"></i>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <div class="specialties">
+                            <h4>Coaching Specialties</h4>
+                            <ul>
+                                <li>Hill climbing technique</li>
+                                <li>Indoor training</li>
+                                <li>Bike maintenance</li>
+                            </ul>
+                        </div>
+                        <div class="certifications">
+                            <h4>Qualifications</h4>
+                            <ul>
+                                <li>British Cycling Level 2</li>
+                                <li>Wattbike Certified</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="coach-card run-coach">
+                    <div class="coach-header">
+                        <img src="https://via.placeholder.com/300x300?text=Coach" alt="Running Coach" class="coach-photo">
+                        <div class="coach-name-title">
+                            <h2>David Thomas</h2>
+                            <h3>Run Coach</h3>
+                        </div>
+                    </div>
+                    <div class="disciplines">
+                        <div class="discipline-icon" data-tooltip="Running Coach">
+                            <i class="fas fa-running"></i>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <div class="specialties">
+                            <h4>Coaching Specialties</h4>
+                            <ul>
+                                <li>Form correction</li>
+                                <li>Interval training</li>
+                                <li>Race strategies</li>
+                            </ul>
+                        </div>
+                        <div class="certifications">
+                            <h4>Qualifications</h4>
+                            <ul>
+                                <li>UK Athletics Level 2</li>
+                                <li>Personal Trainer</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with social media links -->
+    <footer>
+        <p>Follow North Dock Dredgers</p>
+        <!-- Social media icons with links -->
+        <a href="https://www.facebook.com/northdockdredgers" target="_blank">
+            <img src="img/icons/icons8-facebook-96.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/northdockdredgers" target="_blank">
+            <img src="img/icons/icons8-instagram-96.png" alt="Instagram">
+        </a>
+        <a href="mailto:info@northdockdredgers.com">
+            <img src="img/icons/icons8-email-64.png" alt="Email">
+        </a>
+        <a href="https://strava.app.link/HoE5Zbi9kRb" target="_blank">
+            <img src="img/icons/icons8-strava-96.png" alt="Strava">
+        </a>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

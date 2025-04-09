@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training - North Dock Dredgers Triathlon Club</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .discipline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .discipline-section {
+            margin: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 8px solid transparent;
+            overflow: hidden;
+        }
+        
+        .discipline-section:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .discipline-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 15px;
+        }
+        
+        .discipline-icon {
+            font-size: 28px;
+            margin-right: 15px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .discipline-section h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        .session-times {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .session-times h3 {
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .session-times ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .session-times li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .session-times li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Discipline-specific styling */
+        .swimming {
+            border-left-color: #4a90e2;
+            background: linear-gradient(135deg, rgba(218, 40, 78, 0.9) 0%, rgba(74, 144, 226, 0.8) 100%);
+        }
+        
+        .cycling {
+            border-left-color: #50e3c2;
+            background: linear-gradient(135deg, rgba(218, 40, 78, 0.9) 0%, rgba(80, 227, 194, 0.8) 100%);
+        }
+        .running {
+            border-left-color: #f5a623;
+            background: linear-gradient(135deg, rgba(218, 40, 78, 0.9) 0%, rgba(245, 166, 35, 0.8) 100%);
+        }
+        
+        @media (min-width: 992px) {
+            .single-column {
+                padding: 50px 30px;
+                max-width: 100%;
+            }
+            
+            .training {
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .discipline-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                width: 100%;
+            }
+            
+            .discipline-section {
+                flex: 0 0 25%;
+                width: 25%;
+                max-width: 25%;
+                margin-right: 0;
+            }
+        }
+        
+        @media (max-width: 991px) and (min-width: 768px) {
+            .discipline-section {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section containing logo, navigation and CTA button -->
+    <header>
+        <!-- Logo with home page link -->
+        <a href="index.html" class="logo-link">
+            <img src="img/nddredgers-logo-299-160.png" alt="North Dock Dredgers Logo" class="logo">
+        </a>
+        <!-- Right side of header with CTA button and mobile menu -->
+        <div class="header-right">
+            <!-- Call-to-action button -->
+            <a href="join-us.html" class="header-cta">Join the Dredgers Today!</a>
+            <!-- Mobile hamburger menu (three lines) -->
+            <nav class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </nav>
+        </div>
+        <!-- Navigation menu -->
+        <ul class="menu" id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><span>Training</span></li>
+            <li><a href="club-kit.html">Club Kit</a></li>
+            <li><a href="committee-coaches.html">Committee and Coaches</a></li>
+            <li><a href="join-us.html"><strong>Join Us</strong></a></li>
+        </ul>
+    </header>
+
+    <div class="hero-image"></div>
+    <main class="single-column">
+        <section class="column training">
+            <h1>Training Sessions</h1>
+            
+            <div class="discipline-container">
+                <div class="discipline-section swimming">
+                    <div class="discipline-header">
+                        <div class="discipline-icon">
+                            <i class="fas fa-swimmer"></i>
+                        </div>
+                        <h2>Swimming</h2>
+                    </div>
+                    <div class="discipline-content">
+                        <p>Our members join swim clubs, in the local area, that have sessions catering to all abilities, from beginners to advanced triathletes. These tend to be paid sessions.</p>
+                        <p>We organise open water swimming sessions in the summer months. These are free of charge</p>
+                        <p>We also have a number of members who are qualified swim coaches and can help with technique.</p>
+                        <div class="session-times">
+                            <h3>Clubs</h3>
+                            <ul>
+                                <li><strong>TRIdent</strong><br/>Monday, Wednesday, Friday at 06:00am in Penyrheol</li>
+                                <li><strong>Jaime George Swim</strong><br/>Tuesday, Thursday at 20:30pm in Penyrheol</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="discipline-section cycling">
+                    <div class="discipline-header">
+                        <div class="discipline-icon">
+                            <i class="fas fa-bicycle"></i>
+                        </div>
+                        <h2>Cycling</h2>
+                    </div>
+                    <div class="discipline-content">
+                        <p>Our members organise group rides and structured training sessions for cyclists of all levels.</p>
+                        <p>We have a number of members who are qualified cycling coaches and can help with technique.</p>
+                        <div class="session-times">
+                            <h3>Session Times</h3>
+                            <ul>
+                                <li><strong>Saturday:</strong> 8:00 AM - Group Ride</li>
+                                <li><strong>Sunday:</strong> 9:00 AM - Beginners Ride</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="discipline-section running">
+                    <div class="discipline-header">
+                        <div class="discipline-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h2>Running</h2>
+                    </div>
+                    <div class="discipline-content">
+                        <p>We have an organised run every Wednesday in the North Dock area. This is free of charge and led by a trained coach.</p>
+                        <div class="session-times">
+                            <h3>Session Times</h3>
+                            <ul>
+                                <li><strong>Wednesday:</strong> 6:30 PM - Group Run (All abilities)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with social media links -->
+    <footer>
+        <p>Follow North Dock Dredgers</p>
+        <!-- Social media icons with links -->
+        <a href="https://www.facebook.com/northdockdredgers" target="_blank">
+            <img src="img/icons/icons8-facebook-96.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/northdockdredgers" target="_blank">
+            <img src="img/icons/icons8-instagram-96.png" alt="Instagram">
+        </a>
+        <a href="mailto:info@northdockdredgers.com">
+            <img src="img/icons/icons8-email-64.png" alt="Email">
+        </a>
+        <a href="https://strava.app.link/HoE5Zbi9kRb" target="_blank">
+            <img src="img/icons/icons8-strava-96.png" alt="Strava">
+        </a>
+    </footer>
+
+    <!-- JavaScript files -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>

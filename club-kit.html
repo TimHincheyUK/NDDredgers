@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Kit - North Dock Dredgers Triathlon Club</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Club Kit Page Specific Styles */
+        .club-kit {
+            max-width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .club-kit h1 {
+            margin-bottom: 30px;
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .club-kit h1:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #65cfdc, #f5a623);
+            border-radius: 2px;
+        }
+        
+        .kit-intro {
+            margin-bottom: 40px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        .kit-intro p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+        
+        .shop-button {
+            display: inline-block;
+            background-color: #f5a623;
+            color: #000;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .shop-button:hover {
+            background-color: #65cfdc;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .kit-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .kit-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(101, 207, 220, 0.8) 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .kit-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .kit-img-container {
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .kit-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .kit-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #65cfdc, #f5a623);
+            text-transform: uppercase;
+            font-size: 24px;
+        }
+        
+        .kit-card-content {
+            padding: 20px;
+            color: white;
+        }
+        
+        .kit-card-content h3 {
+            margin-top: 0;
+            font-size: 22px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 8px;
+        }
+        
+        .kit-card-content p {
+            margin-bottom: 15px;
+        }
+        
+        .sizing-guide {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .sizing-guide h2 {
+            color: #f5a623;
+            margin-top: 0;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .sizing-guide h2:after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #65cfdc, #f5a623);
+            border-radius: 2px;
+        }
+        
+        .sizing-guide ul {
+            padding-left: 20px;
+        }
+        
+        .sizing-guide li {
+            margin-bottom: 10px;
+        }
+        
+        .ordering-process {
+            margin-top: 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        .ordering-process h2 {
+            color: #f5a623;
+            margin-top: 0;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .ordering-process h2:after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #65cfdc, #f5a623);
+            border-radius: 2px;
+        }
+        
+        .ordering-process ol {
+            padding-left: 20px;
+        }
+        
+        .ordering-process li {
+            margin-bottom: 15px;
+        }
+        
+        .final-cta {
+            text-align: center;
+            margin: 50px 0 20px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .kit-categories {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .kit-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section containing logo, navigation and CTA button -->
+    <header>
+        <a href="index.html" class="logo-link">
+            <img src="img/nddredgers-logo-299-160.png" alt="North Dock Dredgers Logo" class="logo">
+        </a>
+        <div class="header-right">
+            <a href="join-us.html" class="header-cta">Join the Dredgers Today!</a>
+            <nav class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </nav>
+        </div>
+        <ul class="menu" id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="training.html">Training</a></li>
+            <li class="active"><span>Club Kit</span></li>
+            <li><a href="committee-coaches.html">Committee and Coaches</a></li>
+            <li><a href="join-us.html"><strong>Join Us</strong></a></li>
+        </ul>
+    </header>
+
+    <div class="hero-image"></div>
+
+    <main class="single-column">
+        <section class="column club-kit">
+            <h1>Club Kit</h1>
+            
+            <div class="kit-intro">
+                <p>Show your Dredgers pride with our official club kit. All items are custom designed for performance and comfort, featuring our distinctive club colors and logo. Members enjoy special discounts on all items.</p>
+                <a href="https://bravendurance.co.uk/collections/nd-dredgers-custom-orders?_pos=1&_psq=dredgers&_ss=e&_v=1.0" class="shop-button" target="_blank">Visit Club Shop</a>
+            </div>
+            
+            <div class="kit-categories">
+                <!-- Tri Suit Card -->
+                <div class="kit-card">
+                    <div class="kit-img-container">
+                        <div class="kit-img-placeholder">Tri Suit</div>
+                    </div>
+                    <div class="kit-card-content">
+                        <h3>Triathlon Suits</h3>
+                        <p>High-performance tri suits for race day. Available in both men's and women's cuts with short and long sleeve options.</p>
+                    </div>
+                </div>
+                
+                <!-- Cycling Kit Card -->
+                <div class="kit-card">
+                    <div class="kit-img-container">
+                        <div class="kit-img-placeholder">Cycle Kit</div>
+                    </div>
+                    <div class="kit-card-content">
+                        <h3>Cycling Kit</h3>
+                        <p>Premium cycling jerseys and bib shorts. Perfect for training rides and representing the club at cycling events.</p>
+                    </div>
+                </div>
+                
+                <!-- Running Kit Card -->
+                <div class="kit-card">
+                    <div class="kit-img-container">
+                        <div class="kit-img-placeholder">Run Kit</div>
+                    </div>
+                    <div class="kit-card-content">
+                        <h3>Running Kit</h3>
+                        <p>Technical t-shirts, vests and shorts designed for comfort during training sessions and races.</p>
+                    </div>
+                </div>
+                
+                <!-- Casual Wear Card -->
+                <div class="kit-card">
+                    <div class="kit-img-container">
+                        <div class="kit-img-placeholder">Casual</div>
+                    </div>
+                    <div class="kit-card-content">
+                        <h3>Casual Wear</h3>
+                        <p>Hoodies, t-shirts and caps for everyday wear. Show your club spirit even when you're not training.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sizing-guide">
+                <h2>Sizing Information</h2>
+                <p>Our kit partner provides detailed sizing charts for all items on their website. For the best fit, we recommend:</p>
+                <ul>
+                    <li>Take accurate measurements following the guidelines on the shop website</li>
+                    <li>If you're between sizes, size up for a more comfortable fit</li>
+                    <li>Consider your personal preference for compression vs. comfort</li>
+                    <li>For specific sizing advice, contact our kit secretary who can help with recommendations</li>
+                </ul>
+            </div>
+            
+            <div class="ordering-process">
+                <h2>How to Order</h2>
+                <ol>
+                    <li>Click the "Visit Club Shop" button above to access our dedicated club shop page</li>
+                    <li>Browse the available items and select your preferred style and size</li>
+                    <li>Complete the checkout process</li>
+                    <li>Orders are typically fulfilled within 4-6 weeks as items are custom made</li>
+                    <li>You'll receive an email when your order is ready for collection or delivery</li>
+                </ol>
+                <p>Questions about your order? Contact our kit secretary at <a href="mailto:kit@northdockdredgers.com">kit@northdockdredgers.com</a></p>
+            </div>
+            
+            <div class="final-cta">
+                <a href="https://bravendurance.co.uk/collections/nd-dredgers-custom-orders?_pos=1&_psq=dredgers&_ss=e&_v=1.0" class="shop-button" target="_blank">Browse All Kit Options</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with social media links -->
+    <footer>
+        <p>Follow North Dock Dredgers</p>
+        <!-- Social media icons with links -->
+        <a href="https://www.facebook.com/northdockdredgers" target="_blank">
+            <img src="img/icons/icons8-facebook-96.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/northdockdredgers" target="_blank">
+            <img src="img/icons/icons8-instagram-96.png" alt="Instagram">
+        </a>
+        <a href="mailto:info@northdockdredgers.com">
+            <img src="img/icons/icons8-email-64.png" alt="Email">
+        </a>
+        <a href="https://strava.app.link/HoE5Zbi9kRb" target="_blank">
+            <img src="img/icons/icons8-strava-96.png" alt="Strava">
+        </a>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

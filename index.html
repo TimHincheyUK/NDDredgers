@@ -1,0 +1,121 @@
+<!DOCTYPE html> <!-- Declares this as an HTML5 document -->
+<html lang="en"> <!-- Root element with English language setting -->
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add meta tag for better scaling on iPhones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>North Dock Dredgers Triathlon Club</title> <!-- Browser tab title -->
+    <link rel="stylesheet" href="styles/main.css"> <!-- Links to external CSS file -->
+</head>
+<body>
+    <!-- Header section containing logo, navigation and CTA button -->
+    <header>
+        <!-- Logo with home page link -->
+        <a href="index.html" class="logo-link">
+            <img src="img/nddredgers-logo-299-160.png" alt="North Dock Dredgers Logo" class="logo">
+        </a>
+        <!-- Right side of header with CTA button and mobile menu -->
+        <div class="header-right">
+            <!-- Call-to-action button -->
+            <a href="join-us.html" class="header-cta">Join the Dredgers Today!</a>
+            <!-- Mobile hamburger menu (three lines) -->
+            <nav class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </nav>
+        </div>
+        <!-- Navigation menu -->
+        <ul class="menu" id="menu">
+            <li class="active"><span>Home</span></li> <!-- Current page indicator -->
+            <li><a href="training.html">Training</a></li>
+            <li><a href="club-kit.html">Club Kit</a></li>
+            <li><a href="committee-coaches.html">Committee and Coaches</a></li>
+            <li><a href="join-us.html"><strong>Join Us</strong></a></li>
+        </ul>
+    </header>
+    <!-- Background image -->
+    <div class="hero-image">
+    </div>
+
+    <!-- Main content area with three columns -->
+    <main>
+        <!-- About Us section with welcome text and image gallery -->
+        <section class="column about-us">
+            <h1>Welcome to the Dredgers</h1>
+            <p><!-- Welcome text content -->South Wales' most vibrant and inclusive triathlon club! Whether you're a seasoned pro or just starting out, you'll find a home here.
+                <br/>Our diverse members share a passion for triathlon and a commitment to supporting each other. We offer regular training, social events, and workshops to help you improve, build confidence, and achieve your goals.
+                <br/>Join us and experience the North Dock Dredgers spirit!
+            </p>
+            <!-- Image gallery with rotating thumbnails -->
+            <div class="gallery">
+                <img src="img/gallery/ndd1.jpg" alt="North Dock Dredgers" class="gallery-img active" data-index="0">
+                <img src="img/gallery/ndd2.jpg" alt="Training Session" class="gallery-img hidden" data-index="1">
+                <img src="img/gallery/ndd3.jpg" alt="Club Event" class="gallery-img hidden" data-index="2">
+                <img src="img/gallery/ndd4.jpg" alt="Triathlon" class="gallery-img hidden" data-index="3">
+                <img src="img/gallery/ndd5.jpg" alt="Swim Session" class="gallery-img hidden" data-index="4">
+                <img src="img/gallery/ndd6.jpg" alt="Bike Session" class="gallery-img hidden" data-index="5">
+                <img src="img/gallery/ndd7.jpg" alt="Run Session" class="gallery-img hidden" data-index="6">
+                <img src="img/gallery/ndd8.jpg" alt="Social Event" class="gallery-img hidden" data-index="7">
+                <img src="img/gallery/ndd9.jpg" alt="Workshop" class="gallery-img hidden" data-index="8">
+            </div>
+        </section>
+
+        <!-- Location section with Google Maps integration -->
+        <section class="column where-we-are">
+            <h1>Where We Are</h1>
+            <p>If you live in, or near to, the area covered in blue, come join us!</p>
+            <div id="map" class="map-container"></div>
+        </section>
+
+        <!-- Strava integration section -->
+        <section class="column rss-feed">
+            <h1>Strava Feed</h1>
+            <iframe allowtransparency frameborder='0' height='454' scrolling='no' src='https://www.strava.com/clubs/589301/latest-rides/69f951da71648a0a1bc4cecc429fc69b684f42dd?show_rides=true' width='340'></iframe>
+        </section>
+    </main>
+
+    <!-- Footer with social media links -->
+    <footer>
+        <p>Follow North Dock Dredgers</p>
+        <!-- Social media icons with links -->
+        <a href="https://www.facebook.com/northdockdredgers" target="_blank">
+            <img src="img/icons/icons8-facebook-96.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/northdockdredgers" target="_blank">
+            <img src="img/icons/icons8-instagram-96.png" alt="Instagram">
+        </a>
+        <a href="mailto:info@northdockdredgers.com">
+            <img src="img/icons/icons8-email-64.png" alt="Email">
+        </a>
+        <a href="https://strava.app.link/HoE5Zbi9kRb" target="_blank">
+            <img src="img/icons/icons8-strava-96.png" alt="Strava">
+        </a>
+    </footer>
+
+    <!-- Lightbox overlay for gallery images -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <button class="nav-btn prev">&lt;</button>
+        <img src="" alt="" class="lightbox-img">
+        <button class="nav-btn next">&gt;</button>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="scripts/config.js"></script> <!-- Configuration settings -->
+    <script src="scripts/main.js"></script> <!-- Main JavaScript functionality -->
+    <script src="scripts/map.js"></script> <!-- Google Maps integration -->
+    <script src="scripts/gallery.js"></script> <!-- Image gallery functionality -->
+    
+     <!-- Dynamic Google Maps API script loading -->
+    <script>
+        const mapScript = document.createElement('script');
+        mapScript.src = `https://maps.googleapis.com/maps/api/js?key=${config.GOOGLE_MAPS_API_KEY}&callback=initMap`;
+        mapScript.async = true;
+        mapScript.defer = true;
+        document.body.appendChild(mapScript);
+    </script>
+</body>
+</html>
