@@ -514,13 +514,9 @@ main h1 {
 }
 
 .rss-feed {
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     align-items: stretch; /* Changed from center to stretch */
-}
-
-.rss-feed h1 {
-    text-align: left;
 }
 
 .rss-feed iframe {
